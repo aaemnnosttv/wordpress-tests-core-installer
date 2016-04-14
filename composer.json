@@ -1,0 +1,33 @@
+{
+    "name": "aaemnnosttv/wordpress-tests-installer",
+    "description": "A custom installer to install the WordPress core phpunit library",
+    "keywords": [
+        "wordpress",
+        "tests",
+        "phpunit"
+    ],
+    "type": "composer-plugin",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Evan Mattson",
+            "email": "me@aaemnnost.tv"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"aaemnnosttv\\Composer\\": "src"}
+    },
+    "extra": {
+        "class": "aaemnnosttv\\Composer\\WordPressTestsPlugin"
+    },
+    "require": {
+        "composer-plugin-api": "^1.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.0"
+    },
+    "conflict": {
+        "composer/installers": "<1.0.6"
+    }
+}
