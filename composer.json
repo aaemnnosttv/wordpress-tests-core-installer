@@ -8,7 +8,6 @@
     ],
     "type": "composer-plugin",
     "license": "MIT",
-    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Evan Mattson",
