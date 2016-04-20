@@ -1,5 +1,5 @@
 {
-    "name": "aaemnnosttv/wordpress-tests-installer",
+    "name": "aaemnnosttv/wordpress-tests-core-installer",
     "description": "A custom installer to install the WordPress core phpunit library",
     "keywords": [
         "wordpress",
@@ -19,7 +19,7 @@
         "psr-4": {"aaemnnosttv\\Composer\\": "src"}
     },
     "extra": {
-        "class": "aaemnnosttv\\Composer\\WordPressTestsPlugin"
+        "class": "aaemnnosttv\\Composer\\WordPressTestsCorePlugin"
     },
     "require": {
         "composer-plugin-api": "^1.0"

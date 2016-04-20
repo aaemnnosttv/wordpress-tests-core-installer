@@ -5,7 +5,7 @@ namespace aaemnnosttv\Composer;
 use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 
-class WordPressTestsInstaller extends LibraryInstaller
+class WordPressTestsCoreInstaller extends LibraryInstaller
 {
 
     const TYPE = 'wordpress-tests';

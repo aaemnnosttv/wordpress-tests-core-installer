@@ -6,7 +6,7 @@ use Composer\Composer;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 
-class WordPressTestsPlugin implements PluginInterface
+class WordPressTestsCorePlugin implements PluginInterface
 {
 
     /**
@@ -18,6 +18,6 @@ class WordPressTestsPlugin implements PluginInterface
     public function activate(Composer $composer, IOInterface $io)
     {
         $composer->getInstallationManager()
-            ->addInstaller(new WordPressTestsInstaller($io, $composer));
+            ->addInstaller(new WordPressTestsCoreInstaller($io, $composer));
     }
 }
