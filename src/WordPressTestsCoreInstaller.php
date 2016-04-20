@@ -51,7 +51,7 @@ class WordPressTestsCoreInstaller extends LibraryInstaller
     }
 
     /**
-     * [guardAgainstPathConflicts description]
+     * Prevent package path install conflicts
      *
      * @param  PackageInterface $package [description]
      * @param  [type]           $path    [description]
@@ -69,7 +69,7 @@ class WordPressTestsCoreInstaller extends LibraryInstaller
     }
 
     /**
-     * [isPackageConflictForPath description]
+     * Whether or not a different package has already been installed for the given path
      *
      * @param  PackageInterface $package [description]
      * @param  [type]           $path    [description]
@@ -78,30 +78,33 @@ class WordPressTestsCoreInstaller extends LibraryInstaller
      */
     protected function isPackageConflictForPath(PackageInterface $package, $path)
     {
-        return $this->hasPackageForPath($path)
-               && ($package->getPrettyName() != self::$installed[ $path ]->getPrettyName());
+        $installed = $this->getInstalledForPath($path);
+
+        return $installed && ($package->getPrettyName() != $installed->getPrettyName());
     }
 
     /**
-     * [hasPackageForPath description]
+     * Get the package installed at the given path
      *
      * @param  [type]  $path [description]
      *
      * @return boolean       [description]
      */
-    protected function hasPackageForPath($path)
+    protected function getInstalledForPath($path)
     {
-        return ! empty(self::$installed[ $path ]);
+        return ! empty(self::$installed[ $path ])
+            ? self::$installed[ $path ]
+            : null;
     }
 
     /**
-     * [getRootInstallPath description]
+     * Get the install path from the root package
      * @return [type] [description]
      */
     protected function getRootInstallPath()
     {
         if ( ! $this->composer->getPackage()) {
-            return;
+            return null;
         }
 
         return $this->getInstallPathFromExtra($this->composer->getPackage()->getExtra());
