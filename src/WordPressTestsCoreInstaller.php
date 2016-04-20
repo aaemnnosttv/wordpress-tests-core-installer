@@ -8,7 +8,8 @@ use Composer\Package\PackageInterface;
 class WordPressTestsCoreInstaller extends LibraryInstaller
 {
 
-    const TYPE = 'wordpress-tests';
+    const TYPE = 'wordpress-tests-core';
+    const EXTRA_KEY = 'wordpress-tests-core-dir';
 
     private static $installed = [];
 
@@ -104,7 +105,7 @@ class WordPressTestsCoreInstaller extends LibraryInstaller
     }
 
     /**
-     * [getInstallPathFromExtra description]
+     * Get the install path from the "extra" config
      *
      * @param  [type] $extra [description]
      *
@@ -112,8 +113,8 @@ class WordPressTestsCoreInstaller extends LibraryInstaller
      */
     protected function getInstallPathFromExtra($extra)
     {
-        return ! empty($extra[ 'wordpress-tests-dir' ])
-            ? $extra[ 'wordpress-tests-dir' ]
+        return ! empty($extra[ self::EXTRA_KEY ])
+            ? $extra[ self::EXTRA_KEY ]
             : null;
     }
 
