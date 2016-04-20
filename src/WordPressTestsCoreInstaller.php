@@ -60,6 +60,9 @@ class WordPressTestsCoreInstaller extends LibraryInstaller
      */
     protected function guardAgainstPathConflicts(PackageInterface $package, $path)
     {
+        if ( ! $path) {
+            throw new \InvalidArgumentException('No install directory specified for "' . self::EXTRA_KEY . '"!');
+        }
         if ($this->isPackageConflictForPath($package, $path)) {
             throw new \InvalidArgumentException('Two packages cannot share the same directory!');
         }
